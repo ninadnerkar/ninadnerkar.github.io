@@ -1,7 +1,7 @@
 /*
- * Responsee JS - v3 - 2015-08-22
- * http://www.myresponsee.com
- * Copyright 2015, Vision Design - graphic zoo
+ * Responsee JS - v4 - 2016-06-30
+ * https://www.myresponsee.com
+ * Copyright 2016, Vision Design - graphic zoo
  * Free to use under the MIT license.
 */
 jQuery(document).ready(function($) {
@@ -46,6 +46,12 @@ jQuery(document).ready(function($) {
     $('.aside-nav ul ul li > ul').removeClass('show-aside-ul', 'slow');
     $('.aside-nav ul ul li:hover > ul').toggleClass('show-aside-ul', 'slow');
   });
+  //Mobile aside navigation
+  $('.aside-nav-text').each(function(index, element) {
+    $(element).click(function() { 
+      $('.aside-nav > ul').toggleClass('show-menu', 'slow');
+    });
+  });  
   //Responsee nav   
   $('.top-nav > ul > li ul').each(function(index, element) {
     var count = $(element).find('li').length;
@@ -64,6 +70,7 @@ jQuery(document).ready(function($) {
     $('.top-nav ul ul li > ul').removeClass('show-ul', 'slow');  
     $('.top-nav ul ul li:hover > ul').toggleClass('show-ul', 'slow');   
   });
+  //Mobile aside navigation  
   $('.nav-text').click(function() { 
     $('.top-nav > ul').toggleClass('show-menu', 'slow');
   }); 
@@ -96,6 +103,30 @@ jQuery(document).ready(function($) {
         })
       });
     }
+  });
+  //Tooltip
+  $(".tooltip-container").each(function () {
+    $(this).hover(function(){  
+      var pos = $(this).position();  
+      var container = $(this);
+      var pos = container.offset();
+      tip = $(this).find('.tooltip-content');
+      tip_top = $(this).find('.tooltip-content.tooltip-top');
+      tip_bottom = $(this).find('.tooltip-content.tooltip-bottom');
+      
+      var height = tip.height();
+      tip.fadeIn("fast"); //Show tooltip
+      tip_top.css({
+        top: pos.top - height,
+        left: pos.left + (container.width() /2) - (tip.outerWidth(true)/2)
+      })
+      tip_bottom.css({
+        top: pos.top,
+        left: pos.left + (container.width() /2) - (tip.outerWidth(true)/2)
+      })
+      }, function() {
+          tip.fadeOut("fast"); //Hide tooltip
+    });
   });
   //Active item
   var url = window.location.href;
