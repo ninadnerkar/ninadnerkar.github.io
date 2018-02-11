@@ -19,8 +19,25 @@
                                          align="left">
                                         </iframe>
   </div>
-  <div id="Progress Bar">
-   <iframe name="Progress Bar" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRs4J4TBrZ9NlNYNocRfjQfl-rBewkNh8aghWHhOn4tTnWmVDuwNsF6NsbX9tm75iqhHRS2n5yQsowI/pubchart?oid=1982250927&format=interactive" style="height:25%; width: 100%; border: none;"></iframe>
+  <div id="pb">
+   <iframe name="pb" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRs4J4TBrZ9NlNYNocRfjQfl-rBewkNh8aghWHhOn4tTnWmVDuwNsF6NsbX9tm75iqhHRS2n5yQsowI/pubchart?oid=1982250927&format=interactive" style="height:25%; width: 100%; border: none;"></iframe>
 </div>
+  html,body {
+    height:100%;
+}
+.h_cs iframe {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%; 
+    height:calc(100% - 120px);
+}
+.h_pb iframe {
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:100%; 
+    height:120px;
+}
 </body>
 </html>
